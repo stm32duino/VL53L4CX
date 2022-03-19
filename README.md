@@ -3,7 +3,7 @@ Arduino library to support the VL53L4CX Time-of-Flight high accuracy ranging sen
 
 ## API
 
-This sensor uses I2C to communicate. And I2C instance is required to access to the sensor.
+This sensor uses I2C to communicate. An I2C instance is required to access to the sensor.
 The APIs provide simple distance measure in both polling and interrupt modes.
 
 ## Examples
