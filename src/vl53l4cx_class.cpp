@@ -131,25 +131,22 @@ VL53L4CX_Error VL53L4CX::VL53L4CX_I2CWrite(uint8_t DeviceAddr, uint16_t Register
   uint32_t i = 0;
   uint8_t buffer[2];
 
+  dev_i2c->beginTransmission((uint8_t)((DeviceAddr >> 1) & 0x7F));
+
+  // Target register address for transfer
+  buffer[0] = (uint8_t)(RegisterAddr >> 8);
+  buffer[1] = (uint8_t)(RegisterAddr & 0xFF);
+  dev_i2c->write(buffer, 2);
+
   while (i < NumByteToWrite) {
     // If still more than DEFAULT_I2C_BUFFER_LEN bytes to go, DEFAULT_I2C_BUFFER_LEN,
     // else the remaining number of bytes
     size_t current_write_size = (NumByteToWrite - i > DEFAULT_I2C_BUFFER_LEN ? DEFAULT_I2C_BUFFER_LEN : NumByteToWrite - i);
 
-    dev_i2c->beginTransmission((uint8_t)((DeviceAddr >> 1) & 0x7F));
-
-    // Target register address for transfer
-    buffer[0] = (uint8_t)((RegisterAddr + i) >> 8);
-    buffer[1] = (uint8_t)((RegisterAddr + i) & 0xFF);
-    dev_i2c->write(buffer, 2);
     if (dev_i2c->write(pBuffer + i, current_write_size) == 0) {
       return 1;
     } else {
       i += current_write_size;
-      if (NumByteToWrite - i) {
-        // Flush buffer but do not send stop bit so we can keep going
-        dev_i2c->endTransmission(false);
-      }
     }
   }
 
