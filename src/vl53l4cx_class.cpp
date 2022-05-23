@@ -147,8 +147,8 @@ VL53L4CX_Error VL53L4CX::VL53L4CX_I2CWrite(uint8_t DeviceAddr, uint16_t Register
     } else {
       i += current_write_size;
       if (NumByteToWrite - i) {
-        // Flush buffer but do not send stop bit so we can keep going
-        dev_i2c->endTransmission(false);
+        // Flush buffer and send stop bit so we have compatibility also with ESP32 platforms
+        dev_i2c->endTransmission(true);
       }
     }
   }
