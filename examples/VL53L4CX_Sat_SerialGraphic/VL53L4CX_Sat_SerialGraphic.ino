@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
  * @file    VL53L4CX_Sat_SerialGraphic.ino
- * @author  SRA
+ * @author  SRA/CVanzant
  * @version V1.0.0
- * @date    25 June 2022
+ * @date    26 June 2022
  * @brief   Arduino test application for the STMicrolectronics VL53L4CX
  *          proximity sensor satellite based on FlightSense.
  *          This application makes use of C++ classes obtained from the C
