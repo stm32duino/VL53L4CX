@@ -124,8 +124,8 @@ class VL53L4CX {
      */
     void setI2cDevice(TwoWire *i2c)
     {
-        dev_i2c = i2c;
-        MyDevice.I2cHandle = i2c;
+      dev_i2c = i2c;
+      MyDevice.I2cHandle = i2c;
     }
 
     /**
@@ -137,9 +137,9 @@ class VL53L4CX {
      * @param       xshut_pin
      * @return      void
      */
-     void setXShutPin(int xshut_pin)
+    void setXShutPin(int xshut_pin)
     {
-        xshut = xshut_pin;
+      xshut = xshut_pin;
     }
 
     /**
