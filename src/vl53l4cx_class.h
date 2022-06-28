@@ -75,6 +75,17 @@ class VL53L4CX {
       MyDevice.I2cDevAddr = VL53L4CX_DEFAULT_DEVICE_ADDRESS ;
     }
 
+    /** Constructor
+     * No parameters
+     * Functions to set the Twowire I2c device and XShut pin
+     * should be executed before begin();
+     */
+    VL53L4CX() : dev_i2c(), xshut()
+    {
+      Dev = &MyDevice;
+      memset((void *)Dev, 0x0, sizeof(VL53L4CX_Dev_t));
+      MyDevice.I2cDevAddr = VL53L4CX_DEFAULT_DEVICE_ADDRESS ;
+    }
 
     /** Destructor
      */
@@ -101,6 +112,36 @@ class VL53L4CX {
 
     /*** Interface Methods ***/
     /*** High level API ***/
+
+    /**
+     * @brief       Set the Twowire I2c Device
+     *
+     * This function is intended to initialize for the Twowire I2c bus
+     * when the constructor with no parameters is used.
+     *
+     * @param       Pointer to the i2c bus
+     * @return      void
+     */
+    void setI2cDevice(TwoWire *i2c)
+    {
+      dev_i2c = i2c;
+      MyDevice.I2cHandle = i2c;
+    }
+
+    /**
+     * @brief       Set the XShut Pin
+     *
+     * This function is intended to initialize the XShut pin
+     * when the constructor with no parameters is used.
+     *
+     * @param       xshut_pin
+     * @return      void
+     */
+    void setXShutPin(int xshut_pin)
+    {
+      xshut = xshut_pin;
+    }
+
     /**
      * @brief       PowerOn the sensor
      * @return      void
