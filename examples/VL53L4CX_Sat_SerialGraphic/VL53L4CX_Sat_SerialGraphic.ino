@@ -158,7 +158,7 @@ bool I2CDeviceAvailable(uint8_t address, TwoWire **wire)
     Wire1.end();
   }
 #endif
-    return available;
+  return available;
 }
 
 /* Setup ---------------------------------------------------------------------*/
@@ -194,8 +194,8 @@ void setup()
   // Determine the ToF device's address and Twowire device to which it is connected.
   // The default address must be shifted right 1 bit to match the expected physical
   // I2c address.
-  if (I2CDeviceAvailable(VL53L4CX_DEFAULT_DEVICE_ADDRESS >> 1, &DEV_I2C) &&
-      DEV_I2C->begin()) {
+  if (I2CDeviceAvailable(VL53L4CX_DEFAULT_DEVICE_ADDRESS >> 1, &DEV_I2C)) {
+    DEV_I2C->begin();
     sensor_vl53l4cx_sat.setI2cDevice(DEV_I2C);
     sensor_vl53l4cx_sat.setXShutPin(XSHUT_PIN);
   }
