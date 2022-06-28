@@ -117,7 +117,7 @@ class VL53L4CX {
      * @brief       Set the Twowire I2c Device
      *
      * This function is intended to initialize for the Twowire I2c bus
-     * when the contructor with no parameters is used.
+     * when the constructor with no parameters is used.
      *
      * @param       Pointer to the i2c bus
      * @return      void
@@ -132,7 +132,7 @@ class VL53L4CX {
      * @brief       Set the XShut Pin
      *
      * This function is intended to initialize the XShut pin
-     * when the contructor with no parameters is used.
+     * when the constructor with no parameters is used.
      *
      * @param       xshut_pin
      * @return      void
