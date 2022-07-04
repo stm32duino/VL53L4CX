@@ -31,8 +31,6 @@ extern "C" {
  *  @{
  */
 
-/** VL53L4CX IMPLEMENTATION model id */
-#define VL53L4CX_IDENTIFICATION_MODEL_ID       ((uint16_t)0x010F)
 /** VL53L4CX IMPLEMENTATION major version */
 #define VL53L4CX_IMPLEMENTATION_VER_MAJOR       1
 /** VL53L4CX IMPLEMENTATION minor version */
