@@ -194,6 +194,15 @@ class VL53L4CX {
     /* vl53lx_api.h functions */
 
     /**
+     * @brief Return the VL53L4CX Sensor Id (Model Id & Model Type)
+     *
+     * @param   pId                   Pointer to the device Model Id
+     * @return  VL53L4CX_ERROR_NONE     Success
+     * @return  "Other error code"    See ::VL53L4CX_Error
+     */
+    VL53L4CX_Error VL53L4CX_GetSensorId(uint16_t *pId);
+
+    /**
      * @brief Return the VL53L4CX driver Version
      *
      * @note This function doesn't access to the device

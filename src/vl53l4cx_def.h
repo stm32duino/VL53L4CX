@@ -31,7 +31,6 @@ extern "C" {
  *  @{
  */
 
-
 /** VL53L4CX IMPLEMENTATION major version */
 #define VL53L4CX_IMPLEMENTATION_VER_MAJOR       1
 /** VL53L4CX IMPLEMENTATION minor version */
